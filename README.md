@@ -1,6 +1,6 @@
-# Reports
+# aws-jq-reports
 
-This repo is helping out to create some reports on vehicle-related data, that we sometimes like to produce.
+This repo shows how to create reports on data from AWS DynamoDB, which is further processed with jq.
 
 The process is not automated, but it consists of some building-blocks to get your manual process to the finish line a bit quicker.
 
