@@ -1,0 +1,25 @@
+//*** Report - Grouped count
+jq '
+  import "funcs" as f;
+  f::init | f::active
+  | f::grouped
+'
+./data.json
+
+
+//*** Report - Sorted list of VINs with 0 active owners
+jq '
+  import "funcs" as f;
+  f::init | f::active | f::owners_eq(0)
+  | f::proj_vin_array
+'
+./data.json
+
+
+// *** Report - Vehicle details for cars with X owners (or more)
+jq '
+  import "funcs" as f;
+  f::init | f::active | f::owners_gt(1)
+  | f::proj_details
+'
+./data.json

@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    "jq-syntax-highlighting.jq-syntax-highlighting",
+    "davidnussio.vscode-jq-playground"
+  ]
+}
