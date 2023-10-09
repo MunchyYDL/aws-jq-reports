@@ -10,6 +10,7 @@ The process is not automated, but it consists of some building-blocks to get you
 
 - [JQ Homepage](https://jqlang.github.io/jq/)
 - [An Introduction to JQ](https://earthly.dev/blog/jq-select)
+- [JQ Tutorial](https://github.com/rjz/jq-tutorial)
 
 ## Problem
 
