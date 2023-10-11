@@ -1,0 +1,26 @@
+[
+  {
+    "vin": "test-vin-ae950802",
+    "owners": [
+      {
+        "sfid": "test-sfid-8acda9e46e91",
+        "ownerType": "business",
+        "psid": "test-psid-dc138f7eb672",
+        "registeredAt": "2022-07-22T00:00:00.000Z",
+        "unregisteredAt": null
+      }
+    ]
+  },
+  {
+    "vin": "test-vin-ba937102",
+    "owners": [
+      {
+        "sfid": "test-sfid-1ab861f22272",
+        "ownerType": "private",
+        "psid": "test-psid-bd7d92505911",
+        "registeredAt": "2023-09-18T09:07:08.930Z",
+        "unregisteredAt": null
+      }
+    ]
+  }
+]
