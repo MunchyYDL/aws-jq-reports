@@ -33,7 +33,7 @@ aws dynamodb scan \
      > data.json
 ```
 
-[_Example Data_](example-reports/example-data.json)
+[_Example Data_](example-reports/data.json)
 
 ### Report - Grouped count
 
