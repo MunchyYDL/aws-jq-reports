@@ -1,0 +1,28 @@
+{
+  "name": "jq",
+  "description": "Small repo with some code to produce reports from json data",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "private": true,
+  "packageManager": "pnpm@8.11.0",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "check": "pnpm lint && pnpm typecheck && pnpm test",
+    "lint": "eslint .",
+    "test": "jest --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.10",
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "eslint": "8.55.0",
+    "jest": "29.7.0",
+    "jest-cli": "29.7.0",
+    "jest-junit": "16.0.0",
+    "ts-jest": "29.1.1",
+    "ts-node": "10.9.1",
+    "typescript": "5.3.2"
+  }
+}

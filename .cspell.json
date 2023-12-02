@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    "./test-reports",
+    "./tests/**/*.testData.ts",
+    "./.cspell.json",
+    "./pnpm-lock.yaml"
+  ],
+  "language": "en-GB",
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "funcs",
+    "polestar",
+    "preinstall",
+    "typecheck"
+  ],
+  "ignoreWords": [],
+  "import": [],
+  "flagWords": []
+}
