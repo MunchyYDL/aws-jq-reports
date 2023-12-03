@@ -3,3 +3,4 @@ reports
 test-reports
 .DS_Store
 /scripts/*.json
+data.json

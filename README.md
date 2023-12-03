@@ -41,12 +41,24 @@ This produces a small overview report, grouped on the number of active owners a 
 
 ```shell
 cat data.json | jq '
-  import "funcs" as f;
+  import "scripts/funcs" as f;
   f::init | f::active | f::grouped
 ' > reports/cars-grouped-count.json
 ```
 
 [_Example Report_](example-reports/cars-grouped-count.json)
+
+### Report - All VINS
+
+This is just a simple sorted list of all the vins extracted from the input data.
+
+```shell
+cat data.json | jq '
+  import "scripts/funcs" as f;
+  f::init | f::proj_vin_array
+' > reports/all-vins.json
+
+```
 
 ### Cars with 0 owners
 
@@ -54,12 +66,20 @@ As this doesn't need any owner details (it should be empty), we simplify this re
 
 ```shell
 cat data.json | jq '
-  import "funcs" as f;
+  import "scripts/funcs" as f;
   f::init | f::active | f::owners_eq(0) | f::proj_vin_array
 ' > reports/cars-with-0-owners.json
 ```
 
 [_Example Report_](example-reports/cars-with-0-owners.json)
+
+```shell
+cat reports/cars-with-0-owners.json | jq -r '.[]
+' > reports/cars-with-0-owners.txt
+```
+
+[_Example Report_](example-reports/cars-with-0-owners.txt)
+
 
 ### Cars with X owners
 
@@ -67,7 +87,7 @@ This produces a list of vins, with the additional details of the owners.
 
 ```shell
 cat data.json | jq '
-  import "funcs" as f;
+  import "scripts/funcs" as f;
   f::init | f::active | f::owners_eq(1) | f::proj_details
 ' > reports/cars-with-1-owners.json
 ```
