@@ -1,3 +1,9 @@
+The extension I use to develop/test these transformations comes packaged
+with jq-1.6, run this to see what you have installed.
+
+jq --version
+
+
 Make sure you have an unmarshaled result first, as that takes
 unnecessary time to do for each transformation.
 
@@ -9,25 +15,27 @@ operation! :)
 
 
 //*** Report - Grouped owners count
+
 jq '
   import "funcs" as f;
   f::grouped_owners
 '
-../data.json
+../input/data.json
 
 //*** Report - Grouped models count
 jq '
   import "funcs" as f;
   f::grouped_models
 '
-../data.json
+../input/data.json
+
 
 //*** Report - Grouped count (filtered)
 jq --argfile vins ./vins.json '
   import "funcs" as f;
   f::keep($vins) | f::active | f::grouped
 '
-../data.json
+../input/data.json
 
 
 //*** Report - All VINs
@@ -35,7 +43,7 @@ jq '
   import "funcs" as f;
   f::init | f::proj_vin_array
 '
-../data.json
+../input/data.json
 
 
 //*** Report - All VINs in txt
@@ -43,7 +51,7 @@ jq -r '
   import "funcs" as f;
   f::proj_vin_array | .[]
 '
-../data.json
+../input/data.json
 
 
 //*** Report - Sorted list of VINs with 0 active owners
@@ -51,33 +59,22 @@ jq '
   import "funcs" as f;
   f::active | f::owners_eq(0) | f::proj_vin_array
 '
-../data.json
+../input/data.json
 
 
 // *** Report - Vehicle details for cars with X or more owners
 jq '
   import "funcs" as f;
-  f::active | f::owners_gte(1) | f::proj_details
+  f::active | f::owners_gte(1) | f::proj_details_pd
 '
-../data.json
-
-
-// *** Report - Vehicle details for cars with X or more owners (filtered)
-jq --slurpfile vins ../vins.json '
-  import "funcs" as f;
-  f::keep($vins | .[]) | f::active | f::owners_gte(1) | f::proj_details
-'
-../data.json
-
+../input/data.json
 
 
 /* Other tests */
-
-jq --version
 
 // Slurpfile - Reads the file and puts it in an array, kind of strange
 // when you already send it a JSON array, but ok, let's do this anyways
 jq --slurpfile vins ./vins.json '
   $vins | .[]
 '
-../data.json
+../input/data.json

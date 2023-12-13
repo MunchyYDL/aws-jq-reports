@@ -88,5 +88,13 @@
     })
     | sort_by(.vin);
 
+  def proj_details_pd:
+    map({
+      vin: .vin,
+      owners: (.owners | map(proj_owner) | sort_by(.registeredAt)),
+      primaryDriver: .primaryDriver
+    })
+    | sort_by(.vin);
+
   def proj_vin_array:
     map(.vin) | sort;
