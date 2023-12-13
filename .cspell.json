@@ -10,10 +10,12 @@
   "dictionaryDefinitions": [],
   "dictionaries": [],
   "words": [
+    "argfile",
     "funcs",
-    "polestar",
     "preinstall",
-    "typecheck"
+    "slurpfile",
+    "typecheck",
+    "Unmarshalling"
   ],
   "ignoreWords": [],
   "import": [],

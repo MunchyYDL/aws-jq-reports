@@ -1,3 +1,5 @@
+  ## From AWS DynamoDB-JSON to JSON
+
   def unmarshal:
     if type == "object" then
       if has("S") then . = .S
@@ -12,9 +14,12 @@
   def init:
     [ .Items[] | walk(unmarshal) ] | nonull;
 
+
+  ## Filters - Owners
+
   def split:
-      map(.active = (.owners | map(select(.unregisteredTimestamp == null))))
-    | map(.inactive = (.owners | map(select(.unregisteredTimestamp != null))));
+    map(.active = (.owners | map(select(.unregisteredTimestamp == null)))) |
+    map(.inactive = (.owners | map(select(.unregisteredTimestamp != null))));
 
   def active:
     map(.owners |= (map(select(.unregisteredTimestamp == null))));
@@ -28,11 +33,44 @@
   def owners_gte($n):
     map(select(.owners | length >= $n ));
 
-  def grouped:
-    [ .[] | .owners | length ] 
+
+  ## Filters - Models
+
+  def model($n):
+    map(select(.pno34 | startswith($n)));
+
+  def model_ps1:
+    model("232");
+  def model_ps2:
+    model("534");
+  def model_ps3:
+    model("359");
+  def model_ps4:
+    model("814");
+
+
+  ## Filters - Vins
+
+  def keep($items):
+    map(select(.vin | contains($items | .[])));
+
+  def keep(f; $items):
+    map(select(f | contains($items | .[])));    
+
+  ### Projections - Grouped
+
+  def grouped_owners:
+    map(.owners | length) 
     | group_by(.)
     | map({ ((first | tostring) + "_owners"): (. | length) })
     | add;
+
+  def grouped_models:
+    map(.pno34[:3])
+    | group_by(.)
+    | map({ ("model " + (first | tostring)): (. | length) });
+
+  ### Projections - data
 
   def proj_owner:
     { 
@@ -45,10 +83,10 @@
 
   def proj_details:
     map({
-      vin: .vin, 
+      vin: .vin,
       owners: (.owners | map(proj_owner) | sort_by(.registeredAt))
     })
     | sort_by(.vin);
 
   def proj_vin_array:
-    [.[] | .vin ] | sort;
+    map(.vin) | sort;

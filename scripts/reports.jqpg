@@ -1,30 +1,83 @@
-//*** Report - Grouped count
+Make sure you have an unmarshaled result first, as that takes
+unnecessary time to do for each transformation.
+
+This operation can't be done from here, as we can't write the
+output to files, so do the init step from your terminal.
+
+Look in the README.md file for the terminal syntax for this
+operation! :)
+
+
+//*** Report - Grouped owners count
 jq '
   import "funcs" as f;
-  f::init | f::active | f::grouped
+  f::grouped_owners
 '
-./data.json
+../data.json
+
+//*** Report - Grouped models count
+jq '
+  import "funcs" as f;
+  f::grouped_models
+'
+../data.json
+
+//*** Report - Grouped count (filtered)
+jq --argfile vins ./vins.json '
+  import "funcs" as f;
+  f::keep($vins) | f::active | f::grouped
+'
+../data.json
 
 
-//*** Report - All Vins
+//*** Report - All VINs
 jq '
   import "funcs" as f;
   f::init | f::proj_vin_array
 '
-./data.json
+../data.json
+
+
+//*** Report - All VINs in txt
+jq -r '
+  import "funcs" as f;
+  f::proj_vin_array | .[]
+'
+../data.json
 
 
 //*** Report - Sorted list of VINs with 0 active owners
 jq '
   import "funcs" as f;
-  f::init | f::active | f::owners_eq(0) | f::proj_vin_array
+  f::active | f::owners_eq(0) | f::proj_vin_array
 '
-./data.json
+../data.json
 
 
-// *** Report - Vehicle details for cars with X owners (or more)
+// *** Report - Vehicle details for cars with X or more owners
 jq '
   import "funcs" as f;
-  f::init | f::active | f::owners_gt(1) | f::proj_details
+  f::active | f::owners_gte(1) | f::proj_details
 '
-./data.json
+../data.json
+
+
+// *** Report - Vehicle details for cars with X or more owners (filtered)
+jq --slurpfile vins ../vins.json '
+  import "funcs" as f;
+  f::keep($vins | .[]) | f::active | f::owners_gte(1) | f::proj_details
+'
+../data.json
+
+
+
+/* Other tests */
+
+jq --version
+
+// Slurpfile - Reads the file and puts it in an array, kind of strange
+// when you already send it a JSON array, but ok, let's do this anyways
+jq --slurpfile vins ./vins.json '
+  $vins | .[]
+'
+../data.json

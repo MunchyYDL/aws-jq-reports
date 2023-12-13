@@ -1,0 +1,31 @@
+[
+  {
+    "vin": "test-vin-ae950802",
+    "owners": [
+      {
+        "registeredAt": "2022-09-02T00:00:00.000Z",
+        "information": {
+          "ownerType": "private"
+        },
+        "id": "test-sfid-76c0806bd76b",
+        "unregisteredTimestamp": "2022-09-03T00:00:00.000Z"
+      },
+      {
+        "registeredAt": "2022-09-04T00:00:00.000Z",
+        "information": {
+          "ownerType": "private"
+        },
+        "id": "test-sfid-836eaa8e6a44",
+        "unregisteredTimestamp": "2022-10-01T00:00:00.000Z"
+      },
+      {
+        "registeredAt": "2022-07-22T00:00:00.000Z",
+        "information": {
+          "ownerType": "business",
+          "polestarId": "test-psid-dc138f7eb672"
+        },
+        "id": "test-sfid-8acda9e46e91"
+      }
+    ]
+  }
+]

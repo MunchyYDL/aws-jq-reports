@@ -1,0 +1,197 @@
+{
+  "Items": [
+    {
+      "vin": {
+        "S": "test-vin-ae950802"
+      },
+      "owners": {
+        "L": [
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2022-09-02T00:00:00.000Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "private"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-76c0806bd76b"
+              },
+              "unregisteredTimestamp": {
+                "S": "2022-09-03T00:00:00.000Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2022-09-04T00:00:00.000Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "private"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-836eaa8e6a44"
+              },
+              "unregisteredTimestamp": {
+                "S": "2022-10-01T00:00:00.000Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2022-07-22T00:00:00.000Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "business"
+                  },
+                  "polestarId": {
+                    "S": "test-psid-dc138f7eb672"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-8acda9e46e91"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "vin": {
+        "S": "test-vin-d53a59dd"
+      }
+    },
+    {
+      "vin": {
+        "S": "test-vin-4d5cce36"
+      },
+      "owners": {
+        "L": []
+      }
+    },
+    {
+      "vin": {
+        "S": "test-vin-ba937102"
+      },
+      "owners": {
+        "L": [
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2023-09-08T09:01:37.647Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "private"
+                  },
+                  "polestarId": {
+                    "S": "test-psid-ccb9f7e8eada"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-7cc1e6778aa4"
+              },
+              "unregisteredTimestamp": {
+                "S": "2023-09-18T09:07:32.545Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2023-09-06T07:21:18.287Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "private"
+                  },
+                  "polestarId": {
+                    "S": "test-psid-6ca054e49fc7"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-8a73d12f1b93"
+              },
+              "unregisteredTimestamp": {
+                "S": "2023-09-08T08:53:15.851Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2023-09-08T08:52:52.259Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "fleet"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-bb060f89731b"
+              },
+              "unregisteredTimestamp": {
+                "S": "2023-09-08T09:01:45.407Z"
+              }
+            }
+          },
+          {
+            "M": {
+              "registeredAt": {
+                "S": "2023-09-18T09:07:08.930Z"
+              },
+              "information": {
+                "M": {
+                  "ownerType": {
+                    "S": "private"
+                  },
+                  "polestarId": {
+                    "S": "test-psid-bd7d92505911"
+                  }
+                }
+              },
+              "id": {
+                "S": "test-sfid-1ab861f22272"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "vin": {
+        "S": "test-vin-c8067516"
+      },
+      "owners": {
+        "L": []
+      }
+    },
+    {
+      "vin": {
+        "S": "test-vin-fa998791"
+      },
+      "owners": {
+        "L": []
+      }
+    }
+  ]
+}
