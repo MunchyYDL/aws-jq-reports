@@ -70,6 +70,16 @@ jq '
 ../input/data.json
 
 
+
+// *** Report - Grouped models count
+jq '
+  import "funcs" as f;
+  f::grouped_models
+'
+../input/all_cars.json
+
+
+
 /* Other tests */
 
 // Slurpfile - Reads the file and puts it in an array, kind of strange

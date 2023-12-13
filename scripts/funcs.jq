@@ -26,10 +26,8 @@
 
   def owners_eq($n):
     map(select(.owners | length == $n ));
-
   def owners_gt($n):
     map(select(.owners | length > $n ));
-
   def owners_gte($n):
     map(select(.owners | length >= $n ));
 
@@ -68,7 +66,8 @@
   def grouped_models:
     map(.pno34[:3])
     | group_by(.)
-    | map({ ("model " + (first | tostring)): (. | length) });
+    | map({ ("model_" + (first | tostring)): (. | length) })
+    | add;
 
   ### Projections - data
 
