@@ -6,6 +6,14 @@
 cp -r dev now
 ```
 
+## Zip the reports
+
+```shell
+zip reports.zip ./output/ -r
+```
+
+---
+
 ## Export AWS DynamoDB JSON
 
 ```shell
