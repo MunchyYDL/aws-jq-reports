@@ -72,12 +72,13 @@
   ### Projections - data
 
   def proj_owner:
-    { 
-      sfid: .id,
+    {
+      salesforceId: .id,
       ownerType: .information.ownerType, 
-      psid: .information?.polestarId,
+      polestarId: .information?.polestarId,
       registeredAt: .registeredAt,
-      unregisteredAt: .unregisteredTimestamp
+      unregisteredAt: .unregisteredTimestamp,
+      active: (.unregisteredTimestamp == null)
     };
 
   def proj_details:

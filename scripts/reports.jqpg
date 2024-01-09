@@ -84,7 +84,7 @@ jq '
 
 // Slurpfile - Reads the file and puts it in an array, kind of strange
 // when you already send it a JSON array, but ok, let's do this anyways
-jq --slurpfile vins ./vins.json '
+jq --slurpfile vins ./inputs/vins.json '
   $vins | .[]
 '
 ../input/data.json
